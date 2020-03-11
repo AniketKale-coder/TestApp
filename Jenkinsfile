@@ -3,6 +3,6 @@ node{
       git 'https://github.com/debashis-1306/TestApp'
       }
     stage('Compile-Package'){
-       /usr/share/maven/bin/mvn package
+       sh '/usr/share/maven/bin/mvn package'
        }
        }
