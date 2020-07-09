@@ -1,11 +1,13 @@
 pipeline {
-   agent any : 
+   "agent any" : 
    tools {
       maven "3.6.0"
    }
    stages {
        stage('SCM CheckOut'){
-         git 'https://github.com/debashis-1306/TestApp'
+          steps {
+            git 'https://github.com/debashis-1306/TestApp'
+          }
           }
       stage('Compile-Package'){
          steps {
