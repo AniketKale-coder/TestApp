@@ -1,7 +1,7 @@
 pipeline {
    agent any 
    tools {
-      "Maven3.6.3"
+      Maven3.6.3
    }
    stages {
        stage('SCM CheckOut'){
