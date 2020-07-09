@@ -1,8 +1,23 @@
-node{
-   stage('SCM CheckOut'){
-      git 'https://github.com/debashis-1306/TestApp'
+pipeline {
+   agent any : 
+   tools {
+      maven "3.6.0"
    }
-    stage('Compile-Package'){
-       sh '/usr/share/maven/bin/mvn package'
-       }
-       }
+   stages {
+       stage('SCM CheckOut'){
+         git 'https://github.com/debashis-1306/TestApp'
+          }
+      stage('Compile-Package'){
+         steps {
+             sh "mvn -version"
+             sh "mvn clean install" 
+             sh "mvn package"
+              }
+         }
+   }
+   post {
+      always {
+         cleanWs()
+      }
+   }
+}
